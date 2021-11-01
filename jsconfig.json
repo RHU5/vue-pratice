@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["./*"], // ~/ deco
+            "@/*": ["./src/*"] // ~/ deco
+        }
+    },
+    "exclude": ["node_modules", "dist"]
+}

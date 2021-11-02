@@ -1,29 +1,40 @@
 <template>
     <div id="app">
-        <header class="header">
-            <div class="nav-container">
-                <router-link to="/login">Login</router-link>
-                <router-link to="/signup">Sign Up</router-link>
-            </div>
-        </header>
+        <Header></Header>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue';
+
 export default {
     name: 'App',
-    components: {},
+    components: {
+        Header,
+    },
 };
 </script>
 
 <style>
+@import './assets/style/reset.css';
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    padding-top: 70px;
+
+    box-sizing: border-box;
+    padding-top: 90px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
 }
 </style>

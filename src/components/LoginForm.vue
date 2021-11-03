@@ -2,7 +2,9 @@
     <div>
         <div>LoginForm</div>
         <div>{{ 'test' | capitalize }}</div>
-        <div>{{ 3424124124 | formatDate }}</div>
+        <!-- <div>{{ 1242523532523 | formatDate }}</div> -->
+        <input id="username" type="text" />
+        <button>1</button>
     </div>
 </template>
 

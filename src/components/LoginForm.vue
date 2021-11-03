@@ -1,5 +1,9 @@
 <template>
-    <div>LoginForm</div>
+    <div>
+        <div>LoginForm</div>
+        <div>{{ 'test' | capitalize }}</div>
+        <div>{{ 3424124124 | formatDate }}</div>
+    </div>
 </template>
 
 <script>
@@ -36,6 +40,16 @@ export default {
         isUserLogin() {
             return this.$store.getters.isLogin();
         },
+    },
+    filters: {
+        capitalize(value) {
+            if (!value) return '';
+            value = value.toString();
+            return value.charAt(0).toUpperCase() + value.slice(1);
+        },
+        // formatDate(value) {
+        //     return new Date(value);
+        // },
     },
 };
 </script>

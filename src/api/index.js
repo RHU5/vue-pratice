@@ -2,19 +2,18 @@ import axios from 'axios';
 import { setInterceptors } from './common/interceptors';
 
 function createApiConfig() {
-    const api = axios.create({
+    return axios.create({
         baseURL: process.env.VUE_APP_API_URL,
+    });
+}
+
+function createApiConfigWithAuth(url) {
+    const api = axios.create({
+        baseURL: `${process.env.VUE_APP_API_URL}/${url}`,
     });
 
     return setInterceptors(api);
 }
 
-const api = createApiConfig();
-
-export function registerUser(userData) {
-    return api.post('signup', userData);
-}
-
-export function loginUser(userData) {
-    return api.post('login', userData);
-}
+export const api = createApiConfig();
+export const posts = createApiConfigWithAuth('posts');

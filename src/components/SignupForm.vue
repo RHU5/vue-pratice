@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import * as api from '@/api';
-import * as utils from '@/utils/validation';
+import { validateEmail } from '@/utils/validation';
+import { registerUser } from '@/api/auth';
 
 export default {
     name: 'SignupForm',
@@ -19,7 +19,7 @@ export default {
                     password: this.password,
                     nickname: this.nickname,
                 };
-                const { data } = await api.registerUser(userData);
+                const { data } = await registerUser(userData);
                 this.logMessage = `${data.user.username}님 회원 가입이 완료되었습니다.`;
             } catch (error) {
                 console.log(error.response);
@@ -35,7 +35,7 @@ export default {
         },
         computed: {
             isUsernameValid() {
-                return utils.validateEmail(this.username);
+                return validateEmail(this.username);
             },
         },
     },
